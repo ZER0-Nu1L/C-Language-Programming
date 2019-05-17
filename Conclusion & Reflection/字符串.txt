@@ -1,0 +1,19 @@
+c13h2weekday2---命令行
+将英文的星期（"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"）存储到数组（思考采用什么方式？）作为星期表；
+根据命令行参数，在查找星期表后输出其对应的数字。
+如果你编译之后的程序为weekday.exe，那你可以通过CMD来运行该命令，并在后面跟上相应的参数，如：
+weekday.exe Friday
+
+chapter 13: p221, 练习题12
+【输入形式】
+word.exe
+【输出形式】
+Enter full name of a file:
+The extension is: exe
+
+chapter 13: P221, 练习题13
+【输入形式】
+se.uestc.edu.cn
+【输出形式】
+Enter a domain name:
+The URL is: http://www.se.uestc.edu.cn/index.html

@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+#if (!defined(__STDC__))
+printf("非标准C！");
+#elif defined(__STDC_VERSION__)
+printf("标准C版本：%ld。", __STDC_VERSION__);
+#else
+printf("旧的标准C。");
+#endif
+getchar();
+return 0;
+}
+预定义宏__STDC__表示标准C。__STDC_VERSION__表示标准C版本。C99对应的是199901L。
+（注意有些编译器默认没有定义__STDC_VERSION__，甚至没定义__STDC__。所以查编译器手册更保险一点。）
