@@ -1,0 +1,48 @@
+1、修改不如用注释语句
+2、断点设置，思路清晰——一步一步来
+3、数据测试方法
+4、一定要适当写注释语句
+5、快捷键的使用//注释、调试、监视窗口
+
+
+//	for (;; p = p->next) {
+//		if (*L == NULL) break;//如果已经是空链表就直接结束
+//
+//		free(last);
+//		last = p;
+//		if (!p->next) {
+//			free(p);
+//			break;
+//		}
+//	}
+	if (*L == NULL) return;//如果已经是空链表就直接结束
+	for (; p->next != NULL;) {
+		p = p->next;
+		free(last);
+		last = p;
+	}
+
+
+void info_DelAll(GoodList **L) {
+	FILE* file = fopen(DATANAME, "w");
+	fprintf(file, "");//EOF
+	fclose(file);
+	info_DestroyGoods(L);
+	GoodList* head = *L;
+	head->next = NULL;
+	printf("删除成功！\n");
+	CurrentCnt = 0;
+}
+
+我们为什么使用二级指针？？？
+一定是因为需要，所以才使用
+需要的原因是我们需要对指针进行修改
+而此程序中，为了结构的数据传递的效率，所以使用结构指针。
+
+在创建一个新的链表的时候，建议先将他的next设成NULL，避免野指针的问题；
+	GoodList *p = (struct node *) malloc(sizeof(GoodList));
+	p->next = NULL; 
+
+int main(void)
+	GoodList *head = NULL;
+

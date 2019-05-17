@@ -1,0 +1,18 @@
+﻿  超市信息管理系统.c
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(76): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(76): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(233): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(233): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(235): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(235): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(236): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(236): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(365): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(365): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(367): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(367): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(368): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(368): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(517): warning C4047: “函数”:“GoodsList **”与“GoodsList ***”的间接级别不同
+c:\users\wcb53\desktop\c language programming\program design & algorithm basisⅰ-term experment\project1\project1\超市信息管理系统.c(517): warning C4024: “freeGoodInfo”: 形参和实参 1 的类型不同
+  Project1.vcxproj -> C:\Users\wcb53\Desktop\C Language Programming\Program design & algorithm basisⅠ-term experment\Project1\Debug\Project1.exe

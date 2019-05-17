@@ -1,0 +1,57 @@
+//主函数
+int main(void)
+{
+	GoodsList * itemdb = NULL;
+	int choice = 0;
+
+	//if ((itemdb =(GoodsList *) malloc(sizeof(GoodsList))) == NULL)
+	//{
+	//	printf("Error in setting up a list!\n");
+	//	exit(EXIT_FAILURE);
+	//}
+链表头
+
+strcpy 与 strcmp
+insert
+cur != NULL && strcmp(cur->data.goods_name, insert_name) != 0; //strcmp 写成 strcpy
+CurrentCnt++;
+void bubble_sort(GoodsList **itemdb)
+{
+	bool flag = false;
+	int count = 0;
+	GoodsList *first, *second;
+	GoodsInfo temp_value;
+
+	first = *itemdb;
+	while (first != NULL)
+	{
+		count++;
+		first = first->next;
+	}
+
+	for (int i = 1; i < count; i++)
+	{
+		first = *itemdb;
+		second = (*itemdb)->next;//优先级
+		for (int j = 0; j < count - i; j++)
+		{
+			if (first->data.goods_price > second->data.goods_price)
+			{
+				temp_value = second->data;
+				second->data = first->data;
+				first->data = temp_value;
+				flag = true;
+			}
+			first = first->next;
+			second = second->next;
+		}
+		if (flag)
+			flag = false;
+		else
+			break;
+	}
+	printf("排序完成！\n");
+}
+//参数要改
+
+//关于返回指针的合理性：只是返回一个地址(指针储存的内容) 、其实是值传递 
