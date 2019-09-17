@@ -1,0 +1,10 @@
+5. 因为 sht为无符号的 所以输出不会有符号当 sht=-1时，以补码形式放在存储空间，补码为ffff 也就是65535
+
+当其为有符号时 输出就是有符号的
+unsigned short sht = 0;
+sht --;
+printf("%d",sht);//结果为65535
+
+signed short sht = 0;
+sht --;
+printf("%d",sht);//结果为-1.
