@@ -1,0 +1,8 @@
+//	freopen("C:\\Users\\wcb53\\Desktop\\data.txt", "r", stdin);//
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+//	int data;
+//	freopen("C:\\Users\\wcb53\\Desktop\\testdata.out", "r", stdin);//ld returned 1 exit status
+//	scanf("%d", &data);
+//	printf("\n%d", data);
