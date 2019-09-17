@@ -1,0 +1,4 @@
+#define MIN1(a,b) ((a)<(b)?(a):(b))
+#define MIN(a,b)  MIN1(MIN(a,b),c)
+
+#define MIN(a,b,c) (a<b?(a<c?a:c):(b<c?b:c))
