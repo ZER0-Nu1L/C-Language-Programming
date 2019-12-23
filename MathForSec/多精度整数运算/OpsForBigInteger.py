@@ -1,4 +1,7 @@
+# OpsForBigInteger.py
+# encoding = UTF-8
 import math
+import time
 
 # 把列表转化成为数值
 def ArrayToNum(wn):
@@ -6,7 +9,7 @@ def ArrayToNum(wn):
     wn = int(''.join(wn))
     return wn
 
-# 把数值（）按数字逐个分割成数字，组成列表
+# 把数值按数字逐个分割成数字，组成列表
 def NumToArray(w):
     s = str(w)  # 因为整数是不可迭代的，所以要转成字符串处理
     wn = []
@@ -140,14 +143,56 @@ def div(xn, yn, b = 10):
     qn.reverse()
     return (qn, rn)
 
-# 函数的封装性！输入和输出数据的格式和类型
-# 包括异常处理的
-def main():
-    # 数据输入部分：
-    a = input("Enter First integer:");
-    b = input("Enter Second integer:");
+def compare():
+    print("由于 Python 标准库中不能直接对二进制进行运算。为了比较运行的效率，这里我们采用十进制。")
+    print("======================================")
+    x = input("请输入第一个数字:");
+    y = input("请输入第二个数字:");
+    a, b = x, y
+
+    print("========下面是本程序的运行结果：========")
     xn, yn = [], []
-    xn, yn = NumToArray(a), NumToArray(b)
+    xn, yn = NumToArray(eval(a)), NumToArray(eval(b))
+
+    mytime_start = time.time()
+    print("a + b = %d " %  ArrayToNum(add(xn, yn, 10)))
+    w = ArrayToNum(sub(xn, yn, 10))
+    if w == -1:
+        print("运算结果为负数")
+    else:
+        print("a - b = %d" % w)
+
+    w = ArrayToNum(multi(xn, yn, 10))
+    print("a * b = %d" % w)
+
+    qn, rn = div(xn, yn, 10)
+    q = ArrayToNum(qn)
+    r = ArrayToNum(rn)
+    print("a / b = %d" % q)
+    print("a mod b = %d" % r)
+    mytime_end = time.time()
+    print("程序运行时间为：%fs"%(mytime_end - mytime_start))
+
+    print("========下面是标准库运行结果：========")
+    a, b = eval(x), eval(y)
+    mytime_start = time.time()
+    print("a + b = %d " %  (a + b))
+    print("a - b = %d" % (a - b))
+    print("a * b = %d" % (a * b))
+    print("a / b = %d" % (a // b))
+    print("a mod b = %d" % (a %b))
+    mytime_end = time.time()
+    print("程序运行时间为：%fs"%(mytime_end - mytime_start))
+
+
+# 函数的封装性！输入和输出数据的格式和类型
+# 包括异常处理的    
+if __name__ == "__main__":
+    # 数据输入部分：
+    a = input("请输入第一个数字:");
+    b = input("请输入第二个数字:");
+    xn, yn = [], []
+    xn, yn = NumToArray(eval(a)), NumToArray(eval(b))
 
     # 数据运算部分
     w = ArrayToNum(add(xn, yn, 2))
@@ -173,6 +218,5 @@ def main():
     r = ArrayToNum(rn)
     print("a / b = %d" % q)
     print("a mod b = %d" % r)
-    
-if __name__ == "__main__":
-    main()
+
+    compare()
