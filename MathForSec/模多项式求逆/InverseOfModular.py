@@ -1,6 +1,26 @@
 # InverseOfModular.py
 # encoding = UTF-8
 
+# 将 "x^8+x^6+x^5+x^1+1" 形式的字符串转为 110000001 数值的形式
+def FomatStrToValue(str):
+    x = [0]*(1000+1)
+    
+    for i in range(len(str)):
+        if str[i] == 'x':
+            x[int(str[i+2])] = 1
+    if "+1" in str:
+        x[0] = 1
+    return ArrayToNum(x[::-1])
+
+def ValueToFomatStr(x):
+    xn = NumToArray(x)[::-1]
+    str = ""
+    for i in range(len(xn))[::-1]:
+        if xn[i] == 1:
+            str += "+x^%d"%(i)
+    str = str.replace("x^0", "1")
+    return str[1:]
+
 # 把列表转化成为数值
 def ArrayToNum(wn):
     if wn == []: # 补充
@@ -40,13 +60,14 @@ def multi(x, y):
 
 def div(x, y):
     if x < y:
-        return (x, 0)
+        return (0, x)
     q, b = [], [] # q 表示 除数， b 表示每次的减数
     xn, yn = NumToArray(x), NumToArray(y)
     lx, ly = len(xn), len(yn)
     lq = lx - ly + 1
     
-    while ArrayToNum(xn) > y: #len(xn) >= ly and :# 长度大于等于不一定代表能减
+    while ArrayToNum(xn) >= y: #len(xn) >= ly and :# 长度大于等于不一定代表能减
+        # 缺了等于号！！
         b = []
         q.append(1)
         for i in range(lx):         # 得到最大的减数
@@ -63,15 +84,53 @@ def div(x, y):
 
 def gcd(x, y):
     xn, yn = NumToArray(x), NumToArray(y)
+    # 由于之前 div 的缺陷： small % large = 0
     while ArrayToNum(yn) != 0:
         xn, yn = yn, NumToArray(div(ArrayToNum(xn), ArrayToNum(yn))[1])
     return ArrayToNum(xn)
 
+def InverseOfModular(x,m): #这个扩展欧几里得算法求模逆
+    if gcd(x, m) != 1:
+        return None
+    u1, u2, u3 = 1, 0, x
+    v1, v2, v3 = 0, 1, m
+    while v3 != 0:
+        q = div(u3,v3)[0]
+        v1, v2, v3, u1, u2, u3 = (add(u1, multi(q,v1))), (add(u2, multi(q,v2))), (add(u3, multi(q,v3))), v1, v2, v3
+    return div(u1, m)[1]
+
 if __name__ == "__main__":
-    print(multi(10, 110))
+    strx = input('请输入一个多项式f(x)(用x^n的形式表示,x也用x^1的形式表示)：')
+    x = FomatStrToValue(strx)
+    stry = input('请输入另一个多项式g(x)(用x^n的形式表示,x也用x^1的形式表示)：')
+    y = FomatStrToValue(stry)
+    print("f(x)和g(x)的乘积：")
+    print("f(x)×g(x)=%s" % ValueToFomatStr(multi(x, y)))
+    print("f(x)和g(x)的带余除法：")
+    q, r = div(x, y)
+    print("f(x) = %s × g(x) + %s " % (ValueToFomatStr(q), ValueToFomatStr(r)))
+    print("f(x)和g(x)的最大公因数：")
+    print("gcd(f(x), g(x)) = %s" % ValueToFomatStr(gcd(x, y)) )
+    print("f(x)模g(x)的逆元是：")
+    print("f(x)^{-1} mod g(x) = %s" % ValueToFomatStr(InverseOfModular(x, y)))
+    ''' Test
     print(add(101, 110))
+    
     print(div(1100, 100))
     print(div(1011, 100))
+    print(div(1000, 1011))
+    print(div(1, 1011))
     print(div(11, 1))
+    
+    print("-------gcd------")
     print(gcd(1011, 100))
+    print(gcd(100, 1011))
+
     print(gcd(1010, 100))
+
+    print("-------------")
+    print(InverseOfModular(100, 1011))
+    
+    print(gcd(100000011, 100011011))
+    print(InverseOfModular(100000011, 100011011))
+    '''
